@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Abdelrahman Mohy Eldin — CS & Statistics Student, Developer & Designer" />
+  <title>Abdo Mohy — Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ░░░░░ LOADER ░░░░░ -->
+  <div id="loader" role="status" aria-label="Loading portfolio">
+    <div class="ld-inner">
+      <svg class="ld-logo-svg" viewBox="0 0 120 40" fill="none">
+        <text x="0" y="34" font-family="'Bebas Neue'" font-size="38" fill="none" stroke="#0055ff" stroke-width="1">AM</text>
+      </svg>
+      <div class="ld-track"><div class="ld-fill" id="ld-fill"></div></div>
+      <span class="ld-pct" id="ld-pct">0%</span>
+    </div>
+  </div>
+
+  <!-- ░░░░░ CURSOR ░░░░░ -->
+  <div id="cur-dot"  aria-hidden="true"></div>
+  <div id="cur-ring" aria-hidden="true"></div>
+
+  <!-- ░░░░░ NAV ░░░░░ -->
+  <header id="navbar" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="#hero" class="nav-logo" aria-label="Home">
+        <span class="nl-bracket">[</span>AM<span class="nl-bracket">]</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#about"   data-nav>About</a></li>
+        <li><a href="#skills"  data-nav>Skills</a></li>
+        <li><a href="#projects" data-nav>Work</a></li>
+        <li><a href="#contact" data-nav>Contact</a></li>
+      </ul>
+
+      <a href="#contact" class="nav-cta btn-glow">
+        <span class="btn-inner">Hire Me</span>
+      </a>
+
+      <button class="nav-burger" id="nav-burger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ░░░░░ HERO ░░░░░ -->
+  <section id="hero" aria-label="Introduction">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+    <!-- Decorative angled slash lines -->
+    <div class="hero-slashes" aria-hidden="true">
+      <span class="slash s1"></span>
+      <span class="slash s2"></span>
+      <span class="slash s3"></span>
+      <span class="slash s4"></span>
+    </div>
+
+    <!-- Giant watermark -->
+    <div class="hero-watermark" aria-hidden="true">MOHY</div>
+
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- Left: Copy -->
+        <div class="hero-copy">
+          <p class="hero-eyebrow">
+            <span class="eye-line"></span>
+            <span class="eye-mono">// CS &amp; Statistics &nbsp;·&nbsp; Alexandria University</span>
+          </p>
+
+          <h1 class="hero-h1">
+            <span class="h1-row row-top">ABDO</span>
+            <span class="h1-row row-bottom">
+              <span class="h1-outline">MOHY</span>
+            </span>
+          </h1>
+
+          <p class="hero-role">
+            <span class="role-item">Developer</span>
+            <span class="role-sep">/</span>
+            <span class="role-item">Designer</span>
+            <span class="role-sep">/</span>
+            <span class="role-item">Builder</span>
+          </p>
+
+          <p class="hero-bio">
+            Crafting <strong>high-performance digital experiences</strong> at the intersection
+            of Computer Science, Statistics, and Design. Based in
+            <strong>Alexandria, Egypt</strong> — building things that move fast and look sharp.
+          </p>
+
+          <div class="hero-btns">
+            <a href="#projects" class="btn-glow">
+              <span class="btn-inner">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                View My Work
+              </span>
+            </a>
+            <a href="#contact" class="btn-ghost">
+              <span class="btn-inner">Let's Talk</span>
+            </a>
+          </div>
+
+          <!-- Stat bar -->
+          <div class="hero-stats" role="list">
+            <div class="hs-item" role="listitem">
+              <span class="hs-n">7+</span>
+              <span class="hs-l">Projects</span>
+            </div>
+            <div class="hs-div" aria-hidden="true"></div>
+            <div class="hs-item" role="listitem">
+              <span class="hs-n">6</span>
+              <span class="hs-l">Languages</span>
+            </div>
+            <div class="hs-div" aria-hidden="true"></div>
+            <div class="hs-item" role="listitem">
+              <span class="hs-n">4+</span>
+              <span class="hs-l">Tech Stacks</span>
+            </div>
+            <div class="hs-div" aria-hidden="true"></div>
+            <div class="hs-item" role="listitem">
+              <span class="hs-n">ALX</span>
+              <span class="hs-l">University</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Photo -->
+        <div class="hero-visual">
+          <div class="hv-frame" id="hv-frame">
+            <img
+              src="wow.jpeg"
+              alt="Abdelrahman Mohy Eldin — portrait"
+              id="hero-img"
+              loading="eager"
+              onerror="this.style.display='none';document.getElementById('hv-fallback').style.display='flex';"
+            />
+            <!-- Fallback if image missing -->
+            <div id="hv-fallback" style="display:none;">
+              <svg viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="36" r="20" stroke="#0055ff" stroke-width="1.5"/>
+                <path d="M10 90c0-22 18-38 40-38s40 16 40 38" stroke="#0055ff" stroke-width="1.5"/>
+              </svg>
+              <span>wow.png</span>
+            </div>
+
+            <!-- Scan line overlay -->
+            <div class="hv-scanline" aria-hidden="true"></div>
+            <!-- Colour grade -->
+            <div class="hv-grade"   aria-hidden="true"></div>
+          </div>
+
+          <!-- Corner brackets -->
+          <span class="bracket br-tl" aria-hidden="true"></span>
+          <span class="bracket br-tr" aria-hidden="true"></span>
+          <span class="bracket br-bl" aria-hidden="true"></span>
+          <span class="bracket br-br" aria-hidden="true"></span>
+
+          <!-- Floating tag -->
+          <div class="hv-tag" aria-label="Current status">
+            <span class="hv-tag-dot" aria-hidden="true"></span>
+            <span class="hv-tag-txt">Available for hire</span>
+          </div>
+
+          <!-- Vertical label -->
+          <span class="hv-vert" aria-hidden="true">Portfolio · 2025</span>
+        </div>
+
+      </div><!-- /hero-grid -->
+    </div><!-- /container -->
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll" aria-hidden="true">
+      <span class="hs-line"></span>
+      <span class="hs-word">SCROLL</span>
+    </div>
+  </section>
+
+  <!-- ░░░░░ ABOUT ░░░░░ -->
+  <section id="about" aria-labelledby="about-heading">
+    <div class="container">
+
+      <!-- Section label strip -->
+      <div class="sec-strip reveal-x">
+        <span class="strip-num">01</span>
+        <span class="strip-label">About Me</span>
+        <span class="strip-line" aria-hidden="true"></span>
+      </div>
+
+      <div class="about-grid">
+
+        <!-- Copy -->
+        <div class="about-copy reveal">
+          <h2 id="about-heading" class="sec-h2">
+            Built to<br>
+            <em class="h2-accent">Perform</em>
+          </h2>
+
+          <p>I'm <strong>Abdelrahman Mohy Eldin</strong> — a Computer Science &amp; Statistics student with an obsessive drive to build things that are fast, elegant, and precise.</p>
+          <p>My craft lives at the intersection of <strong>systems thinking and design intuition</strong> — from Oracle-backed desktop apps to pixel-perfect UI prototypes and algorithmic tools.</p>
+          <p>Every project is a statement: that engineering and aesthetics aren't opposing forces — they're teammates.</p>
+
+          <!-- Language chips -->
+          <div class="lang-chips" role="list" aria-label="Languages spoken">
+            <span class="chip" role="listitem">
+              <span class="chip-dot" aria-hidden="true"></span>Arabic — Native
+            </span>
+            <span class="chip" role="listitem">
+              <span class="chip-dot" aria-hidden="true"></span>English — Very Good
+            </span>
+          </div>
+        </div>
+
+        <!-- Education timeline -->
+        <div class="about-edu reveal" style="--d:.15s">
+          <div class="sec-strip sec-strip--sm">
+            <span class="strip-num">EDU</span>
+            <span class="strip-label">Education</span>
+            <span class="strip-line" aria-hidden="true"></span>
+          </div>
+
+          <ol class="timeline" aria-label="Education history">
+            <li class="tl-item">
+              <span class="tl-dot" aria-hidden="true"></span>
+              <div class="tl-body">
+                <time class="tl-date" datetime="2025/2029">2025 — 2029 Expected</time>
+                <p class="tl-degree">B.Sc. Computer Science &amp; Statistics</p>
+                <p class="tl-school">Alexandria University — Faculty of Science</p>
+                <span class="tl-badge">Undergraduate</span>
+              </div>
+            </li>
+            <li class="tl-item">
+              <span class="tl-dot" aria-hidden="true"></span>
+              <div class="tl-body">
+                <time class="tl-date" datetime="2025">Ongoing</time>
+                <p class="tl-degree">Self-Directed Engineering</p>
+                <p class="tl-school">Software Architecture · UI/UX · Database Design</p>
+                <span class="tl-badge">In Progress</span>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░░░ SKILLS ░░░░░ -->
+  <section id="skills" aria-labelledby="skills-heading">
+    <div class="container">
+
+      <div class="sec-strip reveal-x">
+        <span class="strip-num">02</span>
+        <span class="strip-label">Technical Arsenal</span>
+        <span class="strip-line" aria-hidden="true"></span>
+      </div>
+
+      <div class="skills-header reveal">
+        <h2 id="skills-heading" class="sec-h2 sec-h2--center">
+          Tools of<br><em class="h2-accent">the Trade</em>
+        </h2>
+      </div>
+
+      <div class="skills-grid" role="list">
+
+        <article class="sk-card reveal" data-tilt role="listitem">
+          <div class="sk-card-head">
+            <span class="sk-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </span>
+            <h3 class="sk-label">Languages</h3>
+          </div>
+          <ul class="sk-tags" aria-label="Programming languages">
+            <li class="sk-tag">Java — OOP</li>
+            <li class="sk-tag">PHP</li>
+            <li class="sk-tag">SQL</li>
+            <li class="sk-tag">HTML5</li>
+            <li class="sk-tag">CSS3</li>
+            <li class="sk-tag">JavaScript</li>
+          </ul>
+        </article>
+
+        <article class="sk-card reveal" data-tilt style="--d:.1s" role="listitem">
+          <div class="sk-card-head">
+            <span class="sk-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </span>
+            <h3 class="sk-label">Frameworks &amp; Tools</h3>
+          </div>
+          <ul class="sk-tags" aria-label="Frameworks and tools">
+            <li class="sk-tag">JavaFX</li>
+            <li class="sk-tag">JDBC</li>
+            <li class="sk-tag">Figma</li>
+            <li class="sk-tag">Git</li>
+            <li class="sk-tag">Tailwind CSS</li>
+          </ul>
+        </article>
+
+        <article class="sk-card reveal" data-tilt style="--d:.2s" role="listitem">
+          <div class="sk-card-head">
+            <span class="sk-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </span>
+            <h3 class="sk-label">Databases</h3>
+          </div>
+          <ul class="sk-tags" aria-label="Databases">
+            <li class="sk-tag">Oracle DB</li>
+            <li class="sk-tag">SQL Server</li>
+            <li class="sk-tag">MySQL — XAMPP</li>
+          </ul>
+        </article>
+
+        <article class="sk-card reveal" data-tilt style="--d:.3s" role="listitem">
+          <div class="sk-card-head">
+            <span class="sk-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20A14.5 14.5 0 0 0 12 2"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+            </span>
+            <h3 class="sk-label">Core Concepts</h3>
+          </div>
+          <ul class="sk-tags" aria-label="Core concepts">
+            <li class="sk-tag">Data Structures</li>
+            <li class="sk-tag">Algorithms</li>
+            <li class="sk-tag">Automata Theory</li>
+            <li class="sk-tag">NFA / DFA</li>
+            <li class="sk-tag">Logic Circuits</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░░░ PROJECTS ░░░░░ -->
+  <section id="projects" aria-labelledby="projects-heading">
+    <div class="container">
+
+      <div class="sec-strip reveal-x">
+        <span class="strip-num">03</span>
+        <span class="strip-label">Selected Work</span>
+        <span class="strip-line" aria-hidden="true"></span>
+      </div>
+
+      <div class="proj-header reveal">
+        <h2 id="projects-heading" class="sec-h2">
+          Projects That<br><em class="h2-accent">Hit Different</em>
+        </h2>
+      </div>
+
+      <div class="proj-grid">
+
+        <!-- Featured -->
+        <article class="proj-card proj-featured reveal" aria-labelledby="proj1-title">
+          <div class="proj-meta">
+            <span class="proj-num" aria-hidden="true">01</span>
+            <ul class="proj-tags" aria-label="Technologies used">
+              <li class="pt">HTML5</li><li class="pt">CSS3</li><li class="pt">JavaScript</li>
+            </ul>
+            <h3 class="proj-name" id="proj1-title">Spark Motor — Automotive Showcase</h3>
+            <a href="https://mhyaldynbdalrhmn1-cloud.github.io/STARK-MOTOR/#home" class="proj-link" aria-label="View Spark Motor project">
+              View Project <span aria-hidden="true">→</span>
+            </a>
+          </div>
+          <p class="proj-desc">
+            Developed a premium, responsive web platform for a car showroom — dynamic vehicle catalogs,
+            filtered spec views, and an immersive UI/UX that matches luxury automotive brand standards.
+            Every interaction engineered to feel as powerful as the vehicles themselves.
+          </p>
+        </article>
+
+        <article class="proj-card reveal" style="--d:.05s" aria-labelledby="proj2-title">
+          <span class="proj-num" aria-hidden="true">02</span>
+          <ul class="proj-tags" aria-label="Technologies used"><li class="pt">Frontend</li><li class="pt">Responsive</li></ul>
+          <h3 class="proj-name" id="proj2-title">Stark E-Commerce Platform</h3>
+          <p class="proj-desc">Multi-page consumer electronics platform — intuitive catalog UX, responsive layout performance, cohesive modern design system.</p>
+          <a href="https://mhyaldynbdalrhmn1-cloud.github.io/Stark/" class="proj-link" aria-label="View Stark E-Commerce project">View Project <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="proj-card reveal" style="--d:.1s" aria-labelledby="proj3-title">
+          <span class="proj-num" aria-hidden="true">03</span>
+          <ul class="proj-tags" aria-label="Technologies used"><li class="pt">Frontend</li><li class="pt">Brand Design</li></ul>
+          <h3 class="proj-name" id="proj3-title">Spanish Cafe Landing Page</h3>
+          <p class="proj-desc">Premium, fully responsive landing page for an elite coffee shop — cohesive brand identity, detailed menu architecture, fluid animations.</p>
+          <a href="https://mhyaldynbdalrhmn1-cloud.github.io/spanish-cafe/" class="proj-link" aria-label="View Spanish Cafe project">View Project <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="proj-card reveal" style="--d:.05s" aria-labelledby="proj4-title">
+          <span class="proj-num" aria-hidden="true">04</span>
+          <ul class="proj-tags" aria-label="Technologies used"><li class="pt">Java</li><li class="pt">Desktop</li><li class="pt">Automata</li></ul>
+          <h3 class="proj-name" id="proj4-title">Automata Theory Tool — NFA→DFA</h3>
+          <p class="proj-desc">Robust desktop application converting NFA to DFA — file I/O streams, structured state-machine data processing, algorithmic precision.</p>
+     
+        </article>
+
+        <article class="proj-card reveal" style="--d:.1s" aria-labelledby="proj5-title">
+          <span class="proj-num" aria-hidden="true">05</span>
+          <ul class="proj-tags" aria-label="Technologies used"><li class="pt">Figma</li><li class="pt">UI/UX</li><li class="pt">Frontend</li></ul>
+          <h3 class="proj-name" id="proj5-title">Capsulty — Medical Reminder Platform</h3>
+          <p class="proj-desc">High-fidelity Figma mobile prototype with responsive web landing — bridging design systems and frontend implementation for healthcare.</p>
+          <a href="https://www.figma.com/design/ZTczmDpkXEgryiwIsN3yG7/Untitled?node-id=0-1&t=7DgttU6DpZZ16R4I-1" class="proj-link" aria-label="View Capsulty project">View Project <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="proj-card reveal" style="--d:.05s" aria-labelledby="proj6-title">
+          <span class="proj-num" aria-hidden="true">06</span>
+          <ul class="proj-tags" aria-label="Technologies used"><li class="pt">Java</li><li class="pt">JavaFX</li><li class="pt">Oracle DB</li><li class="pt">JDBC</li></ul>
+          <h3 class="proj-name" id="proj6-title">Hotel &amp; Guest Management System</h3>
+          <p class="proj-desc">Full desktop app integrated with Oracle Database via JDBC — robust persistence for hotel operations and guest management.</p>
+        </article>
+
+        <article class="proj-card reveal" style="--d:.1s" aria-labelledby="proj7-title">
+          <span class="proj-num" aria-hidden="true">07</span>
+          <ul class="proj-tags" aria-label="Technologies used"><li class="pt">Java</li><li class="pt">Algorithms</li><li class="pt">Data Structures</li></ul>
+          <h3 class="proj-name" id="proj7-title">Expression Evaluator — Infix→Postfix</h3>
+          <p class="proj-desc">Converts mathematical expressions and renders hierarchical Parse Trees — algorithmic elegance, clean implementation, optimal runtime.</p>
+        </article>
+
+        <!-- Hardware callout -->
+        <div class="hw-strip reveal" role="complementary" aria-label="Hardware project">
+          <div class="hw-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div>
+            <p class="hw-title">Hardware: Traffic Light Control Circuit</p>
+            <p class="hw-desc">Designed using IC 4017 &amp; IC 4026 chips — signal timing simulation and physical hardware integration.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░░░ CONTACT ░░░░░ -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+
+      <div class="sec-strip reveal-x">
+        <span class="strip-num">04</span>
+        <span class="strip-label">Get In Touch</span>
+        <span class="strip-line" aria-hidden="true"></span>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Info -->
+        <div class="contact-info reveal">
+          <h2 id="contact-heading" class="sec-h2">
+            Let's Build<br><em class="h2-accent">Something Great</em>
+          </h2>
+          <p class="contact-sub">
+            Open for freelance, collaborations, and full-time roles.
+            If you have a project or just want to connect — I'm ready.
+          </p>
+
+          <dl class="ci-list">
+            <div class="ci-item">
+              <dt class="ci-label">Email</dt>
+              <dd><a href="mailto:mhyaldynbdalrhmn1@gmail.com" class="ci-value">mhyaldynbdalrhmn1@gmail.com</a></dd>
+            </div>
+            <div class="ci-item">
+              <dt class="ci-label">Phone</dt>
+              <dd><a href="tel:+201092967490" class="ci-value">+20 1092967490</a></dd>
+            </div>
+            <div class="ci-item">
+              <dt class="ci-label">GitHub</dt>
+              <dd><a href="https://github.com/mhyaldynbdalrhmn1-cloud" target="_blank" rel="noopener noreferrer" class="ci-value">github.com/mhyaldynbdalrhmn1-cloud</a></dd>
+            </div>
+             <div class="ci-item">
+              <dt class="ci-label">LinkedIn</dt>
+              <dd><a href="https://www.linkedin.com/in/abdelrahman-mohy-eldin-066929328?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="ci-value">Click here</a></dd>
+            </div>
+            <div class="ci-item">
+              <dt class="ci-label">Location</dt>
+              <dd><span class="ci-value">Alexandria, Egypt</span></dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- Form -->
+        <div class="contact-form-wrap reveal" style="--d:.15s">
+          <form id="contact-form" class="cform" novalidate aria-label="Contact form">
+            <div class="fg">
+              <label for="cf-name" class="fl">Full Name</label>
+              <input class="fi" id="cf-name" name="from_name" type="text" placeholder="Your name" required autocomplete="name" />
+              <span class="fi-border" aria-hidden="true"></span>
+            </div>
+            <div class="fg">
+              <label for="cf-email" class="fl">Email Address</label>
+              <input class="fi" id="cf-email" name="from_email" type="email" placeholder="your@email.com" required autocomplete="email" />
+              <span class="fi-border" aria-hidden="true"></span>
+            </div>
+            <div class="fg">
+              <label for="cf-subject" class="fl">Subject</label>
+              <input class="fi" id="cf-subject" name="subject" type="text" placeholder="What's this about?" required />
+              <span class="fi-border" aria-hidden="true"></span>
+            </div>
+            <div class="fg">
+              <label for="cf-message" class="fl">Message</label>
+              <textarea class="fi ft" id="cf-message" name="message" placeholder="Tell me about your project..." required></textarea>
+              <span class="fi-border" aria-hidden="true"></span>
+            </div>
+
+            <button type="submit" class="btn-glow form-submit" id="form-btn" aria-live="polite">
+              <span class="btn-inner" id="form-btn-label">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                Send Message
+              </span>
+            </button>
+
+            <!-- Status messages -->
+            <p class="form-success" id="form-success" role="alert" aria-live="polite" hidden>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Message sent — I'll be in touch soon!
+            </p>
+            <p class="form-error" id="form-error" role="alert" aria-live="polite" hidden>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Something went wrong. Please email me directly.
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░░░ FOOTER ░░░░░ -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+
+        <a href="#hero" class="footer-logo" aria-label="Back to top">
+          <span class="nl-bracket">[</span>AM<span class="nl-bracket">]</span>
+        </a>
+
+        <p class="footer-copy">
+          &copy; 2025 Abdelrahman Mohy Eldin &mdash; Crafted with precision.
+        </p>
+
+        <nav class="footer-socials" aria-label="Social links">
+          <a href="mailto:mhyaldynbdalrhmn1@gmail.com" class="soc-link">Email</a>
+          <a href="https://github.com/mhyaldynbdalrhmn1-cloud" target="_blank" rel="noopener noreferrer" class="soc-link">GitHub</a>
+          <a href="tel:+201092967490" class="soc-link">Phone</a>
+        </nav>
+
+      </div>
+    </div>
+
+    <!-- Back to top -->
+    <button class="back-top" id="back-top" aria-label="Scroll back to top" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </footer>
+
+  <!-- Main script -->
+  <script src="main.js"></script>
+  
+</body>
+</html>
