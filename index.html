@@ -1,571 +1,497 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" data-lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Abdelrahman Mohy Eldin — CS & Statistics Student, Developer & Designer" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Abdelrahman Mohy Eldin — CS & Statistics Student, Developer & Designer"/>
   <title>Abdo Mohy — Portfolio</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Fonts: English -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 
-  <!-- EmailJS SDK -->
+  <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-  <!-- ░░░░░ LOADER ░░░░░ -->
-  <div id="loader" role="status" aria-label="Loading portfolio">
-    <div class="ld-inner">
-      <svg class="ld-logo-svg" viewBox="0 0 120 40" fill="none">
-        <text x="0" y="34" font-family="'Bebas Neue'" font-size="38" fill="none" stroke="#0055ff" stroke-width="1">AM</text>
-      </svg>
-      <div class="ld-track"><div class="ld-fill" id="ld-fill"></div></div>
-      <span class="ld-pct" id="ld-pct">0%</span>
-    </div>
+<!-- ███ LOADER ███ -->
+<div id="loader">
+  <div class="ld-box">
+    <div class="ld-logo">AM</div>
+    <div class="ld-bar-wrap"><div id="ld-bar" class="ld-bar"></div></div>
+    <span id="ld-pct" class="ld-pct">0%</span>
   </div>
+</div>
 
-  <!-- ░░░░░ CURSOR ░░░░░ -->
-  <div id="cur-dot"  aria-hidden="true"></div>
-  <div id="cur-ring" aria-hidden="true"></div>
+<!-- ███ CURSOR ███ -->
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
 
-  <!-- ░░░░░ NAV ░░░░░ -->
-  <header id="navbar" role="banner">
-    <nav class="nav-inner" aria-label="Main navigation">
-      <a href="#hero" class="nav-logo" aria-label="Home">
-        <span class="nl-bracket">[</span>AM<span class="nl-bracket">]</span>
+<!-- ███ NAV ███ -->
+<header id="navbar">
+  <div class="nav-wrap">
+
+    <!-- Logo -->
+    <a href="#hero" class="nav-logo">
+      <span class="logo-bracket">&lt;</span>AM<span class="logo-bracket">/&gt;</span>
+    </a>
+
+    <!-- Links -->
+    <nav class="nav-links" id="nav-links">
+      <a href="#about"    data-en="About"    data-ar="من أنا"    data-nav>About</a>
+      <a href="#skills"   data-en="Skills"   data-ar="المهارات"  data-nav>Skills</a>
+      <a href="#projects" data-en="Work"     data-ar="أعمالي"    data-nav>Work</a>
+      <a href="#contact"  data-en="Contact"  data-ar="تواصل"     data-nav>Contact</a>
+    </nav>
+
+    <!-- Right side controls -->
+    <div class="nav-right">
+      <!-- Language Toggle -->
+      <button id="lang-btn" class="lang-toggle" aria-label="Switch language">
+        <span class="lang-globe">🌐</span>
+        <span class="lang-text" id="lang-label">عربي</span>
+      </button>
+
+      <!-- CTA -->
+      <a href="#contact" class="btn-primary nav-cta">
+        <span data-en="Hire Me" data-ar="وظّفني">Hire Me</span>
       </a>
 
-      <ul class="nav-links" id="nav-links" role="list">
-        <li><a href="#about"   data-nav>About</a></li>
-        <li><a href="#skills"  data-nav>Skills</a></li>
-        <li><a href="#projects" data-nav>Work</a></li>
-        <li><a href="#contact" data-nav>Contact</a></li>
-      </ul>
-
-      <a href="#contact" class="nav-cta btn-glow">
-        <span class="btn-inner">Hire Me</span>
-      </a>
-
-      <button class="nav-burger" id="nav-burger" aria-label="Toggle menu" aria-expanded="false">
+      <!-- Burger -->
+      <button id="burger" class="burger" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-    </nav>
-  </header>
-
-  <!-- ░░░░░ HERO ░░░░░ -->
-  <section id="hero" aria-label="Introduction">
-    <canvas id="hero-canvas" aria-hidden="true"></canvas>
-
-    <!-- Decorative angled slash lines -->
-    <div class="hero-slashes" aria-hidden="true">
-      <span class="slash s1"></span>
-      <span class="slash s2"></span>
-      <span class="slash s3"></span>
-      <span class="slash s4"></span>
     </div>
 
-    <!-- Giant watermark -->
-    <div class="hero-watermark" aria-hidden="true">MOHY</div>
+  </div>
+</header>
 
-    <div class="container">
-      <div class="hero-grid">
+<!-- ███ HERO ███ -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
 
-        <!-- Left: Copy -->
-        <div class="hero-copy">
-          <p class="hero-eyebrow">
-            <span class="eye-line"></span>
-            <span class="eye-mono">// CS &amp; Statistics &nbsp;·&nbsp; Alexandria University</span>
-          </p>
+  <!-- Animated grid lines -->
+  <div class="hero-grid-lines" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
 
-          <h1 class="hero-h1">
-            <span class="h1-row row-top">ABDO</span>
-            <span class="h1-row row-bottom">
-              <span class="h1-outline">MOHY</span>
-            </span>
-          </h1>
+  <!-- Big BG text -->
+  <div class="hero-bg-word" aria-hidden="true">MOHY</div>
 
-          <p class="hero-role">
-            <span class="role-item">Developer</span>
-            <span class="role-sep">/</span>
-            <span class="role-item">Designer</span>
-            <span class="role-sep">/</span>
-            <span class="role-item">Builder</span>
-          </p>
+  <div class="container hero-inner">
 
-          <p class="hero-bio">
-            Crafting <strong>high-performance digital experiences</strong> at the intersection
-            of Computer Science, Statistics, and Design. Based in
-            <strong>Alexandria, Egypt</strong> — building things that move fast and look sharp.
-          </p>
+    <!-- Left copy -->
+    <div class="hero-copy">
 
-          <div class="hero-btns">
-            <a href="#projects" class="btn-glow">
-              <span class="btn-inner">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                View My Work
-              </span>
-            </a>
-            <a href="#contact" class="btn-ghost">
-              <span class="btn-inner">Let's Talk</span>
-            </a>
-          </div>
-
-          <!-- Stat bar -->
-          <div class="hero-stats" role="list">
-            <div class="hs-item" role="listitem">
-              <span class="hs-n">7+</span>
-              <span class="hs-l">Projects</span>
-            </div>
-            <div class="hs-div" aria-hidden="true"></div>
-            <div class="hs-item" role="listitem">
-              <span class="hs-n">6</span>
-              <span class="hs-l">Languages</span>
-            </div>
-            <div class="hs-div" aria-hidden="true"></div>
-            <div class="hs-item" role="listitem">
-              <span class="hs-n">4+</span>
-              <span class="hs-l">Tech Stacks</span>
-            </div>
-            <div class="hs-div" aria-hidden="true"></div>
-            <div class="hs-item" role="listitem">
-              <span class="hs-n">ALX</span>
-              <span class="hs-l">University</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Photo -->
-        <div class="hero-visual">
-          <div class="hv-frame" id="hv-frame">
-            <img
-              src="wow.jpeg"
-              alt="Abdelrahman Mohy Eldin — portrait"
-              id="hero-img"
-              loading="eager"
-              onerror="this.style.display='none';document.getElementById('hv-fallback').style.display='flex';"
-            />
-            <!-- Fallback if image missing -->
-            <div id="hv-fallback" style="display:none;">
-              <svg viewBox="0 0 100 100" fill="none">
-                <circle cx="50" cy="36" r="20" stroke="#0055ff" stroke-width="1.5"/>
-                <path d="M10 90c0-22 18-38 40-38s40 16 40 38" stroke="#0055ff" stroke-width="1.5"/>
-              </svg>
-              <span>wow.png</span>
-            </div>
-
-            <!-- Scan line overlay -->
-            <div class="hv-scanline" aria-hidden="true"></div>
-            <!-- Colour grade -->
-            <div class="hv-grade"   aria-hidden="true"></div>
-          </div>
-
-          <!-- Corner brackets -->
-          <span class="bracket br-tl" aria-hidden="true"></span>
-          <span class="bracket br-tr" aria-hidden="true"></span>
-          <span class="bracket br-bl" aria-hidden="true"></span>
-          <span class="bracket br-br" aria-hidden="true"></span>
-
-          <!-- Floating tag -->
-          <div class="hv-tag" aria-label="Current status">
-            <span class="hv-tag-dot" aria-hidden="true"></span>
-            <span class="hv-tag-txt">Available for hire</span>
-          </div>
-
-          <!-- Vertical label -->
-          <span class="hv-vert" aria-hidden="true">Portfolio · 2025</span>
-        </div>
-
-      </div><!-- /hero-grid -->
-    </div><!-- /container -->
-
-    <!-- Scroll indicator -->
-    <div class="hero-scroll" aria-hidden="true">
-      <span class="hs-line"></span>
-      <span class="hs-word">SCROLL</span>
-    </div>
-  </section>
-
-  <!-- ░░░░░ ABOUT ░░░░░ -->
-  <section id="about" aria-labelledby="about-heading">
-    <div class="container">
-
-      <!-- Section label strip -->
-      <div class="sec-strip reveal-x">
-        <span class="strip-num">01</span>
-        <span class="strip-label">About Me</span>
-        <span class="strip-line" aria-hidden="true"></span>
+      <div class="hero-badge-top">
+        <span class="badge-dot"></span>
+        <span data-en="Open to opportunities" data-ar="متاح للفرص">Open to opportunities</span>
       </div>
 
-      <div class="about-grid">
+      <h1 class="hero-name">
+        <span class="hn-top" data-en="ABDO" data-ar="عبد الرحمن">ABDO</span>
+        <span class="hn-bot">
+          <span class="hn-outline" data-en="MOHY" data-ar="محي الدين">MOHY</span>
+        </span>
+      </h1>
 
-        <!-- Copy -->
-        <div class="about-copy reveal">
-          <h2 id="about-heading" class="sec-h2">
-            Built to<br>
-            <em class="h2-accent">Perform</em>
-          </h2>
-
-          <p>I'm <strong>Abdelrahman Mohy Eldin</strong> — a Computer Science &amp; Statistics student with an obsessive drive to build things that are fast, elegant, and precise.</p>
-          <p>My craft lives at the intersection of <strong>systems thinking and design intuition</strong> — from Oracle-backed desktop apps to pixel-perfect UI prototypes and algorithmic tools.</p>
-          <p>Every project is a statement: that engineering and aesthetics aren't opposing forces — they're teammates.</p>
-
-          <!-- Language chips -->
-          <div class="lang-chips" role="list" aria-label="Languages spoken">
-            <span class="chip" role="listitem">
-              <span class="chip-dot" aria-hidden="true"></span>Arabic — Native
-            </span>
-            <span class="chip" role="listitem">
-              <span class="chip-dot" aria-hidden="true"></span>English — Very Good
-            </span>
-          </div>
-        </div>
-
-        <!-- Education timeline -->
-        <div class="about-edu reveal" style="--d:.15s">
-          <div class="sec-strip sec-strip--sm">
-            <span class="strip-num">EDU</span>
-            <span class="strip-label">Education</span>
-            <span class="strip-line" aria-hidden="true"></span>
-          </div>
-
-          <ol class="timeline" aria-label="Education history">
-            <li class="tl-item">
-              <span class="tl-dot" aria-hidden="true"></span>
-              <div class="tl-body">
-                <time class="tl-date" datetime="2025/2029">2025 — 2029 Expected</time>
-                <p class="tl-degree">B.Sc. Computer Science &amp; Statistics</p>
-                <p class="tl-school">Alexandria University — Faculty of Science</p>
-                <span class="tl-badge">Undergraduate</span>
-              </div>
-            </li>
-            <li class="tl-item">
-              <span class="tl-dot" aria-hidden="true"></span>
-              <div class="tl-body">
-                <time class="tl-date" datetime="2025">Ongoing</time>
-                <p class="tl-degree">Self-Directed Engineering</p>
-                <p class="tl-school">Software Architecture · UI/UX · Database Design</p>
-                <span class="tl-badge">In Progress</span>
-              </div>
-            </li>
-          </ol>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ░░░░░ SKILLS ░░░░░ -->
-  <section id="skills" aria-labelledby="skills-heading">
-    <div class="container">
-
-      <div class="sec-strip reveal-x">
-        <span class="strip-num">02</span>
-        <span class="strip-label">Technical Arsenal</span>
-        <span class="strip-line" aria-hidden="true"></span>
+      <div class="hero-typewriter">
+        <span data-en="// CS & Statistics · Alexandria University"
+              data-ar="// علم الحاسب والإحصاء · جامعة الإسكندرية">
+          // CS &amp; Statistics · Alexandria University
+        </span>
       </div>
 
-      <div class="skills-header reveal">
-        <h2 id="skills-heading" class="sec-h2 sec-h2--center">
-          Tools of<br><em class="h2-accent">the Trade</em>
-        </h2>
-      </div>
+      <p class="hero-desc"
+         data-en="Building high-performance digital experiences at the intersection of Computer Science, Statistics, and Design. Based in <strong>Alexandria, Egypt</strong>."
+         data-ar="أبني تجارب رقمية عالية الأداء عند تقاطع علوم الحاسب والإحصاء والتصميم. مقيم في <strong>الإسكندرية، مصر</strong>.">
+        Building high-performance digital experiences at the intersection of Computer Science, Statistics, and Design. Based in <strong>Alexandria, Egypt</strong>.
+      </p>
 
-      <div class="skills-grid" role="list">
-
-        <article class="sk-card reveal" data-tilt role="listitem">
-          <div class="sk-card-head">
-            <span class="sk-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            </span>
-            <h3 class="sk-label">Languages</h3>
-          </div>
-          <ul class="sk-tags" aria-label="Programming languages">
-            <li class="sk-tag">Java — OOP</li>
-            <li class="sk-tag">PHP</li>
-            <li class="sk-tag">SQL</li>
-            <li class="sk-tag">HTML5</li>
-            <li class="sk-tag">CSS3</li>
-            <li class="sk-tag">JavaScript</li>
-          </ul>
-        </article>
-
-        <article class="sk-card reveal" data-tilt style="--d:.1s" role="listitem">
-          <div class="sk-card-head">
-            <span class="sk-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            </span>
-            <h3 class="sk-label">Frameworks &amp; Tools</h3>
-          </div>
-          <ul class="sk-tags" aria-label="Frameworks and tools">
-            <li class="sk-tag">JavaFX</li>
-            <li class="sk-tag">JDBC</li>
-            <li class="sk-tag">Figma</li>
-            <li class="sk-tag">Git</li>
-            <li class="sk-tag">Tailwind CSS</li>
-          </ul>
-        </article>
-
-        <article class="sk-card reveal" data-tilt style="--d:.2s" role="listitem">
-          <div class="sk-card-head">
-            <span class="sk-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-            </span>
-            <h3 class="sk-label">Databases</h3>
-          </div>
-          <ul class="sk-tags" aria-label="Databases">
-            <li class="sk-tag">Oracle DB</li>
-            <li class="sk-tag">SQL Server</li>
-            <li class="sk-tag">MySQL — XAMPP</li>
-          </ul>
-        </article>
-
-        <article class="sk-card reveal" data-tilt style="--d:.3s" role="listitem">
-          <div class="sk-card-head">
-            <span class="sk-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20A14.5 14.5 0 0 0 12 2"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
-            </span>
-            <h3 class="sk-label">Core Concepts</h3>
-          </div>
-          <ul class="sk-tags" aria-label="Core concepts">
-            <li class="sk-tag">Data Structures</li>
-            <li class="sk-tag">Algorithms</li>
-            <li class="sk-tag">Automata Theory</li>
-            <li class="sk-tag">NFA / DFA</li>
-            <li class="sk-tag">Logic Circuits</li>
-          </ul>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ░░░░░ PROJECTS ░░░░░ -->
-  <section id="projects" aria-labelledby="projects-heading">
-    <div class="container">
-
-      <div class="sec-strip reveal-x">
-        <span class="strip-num">03</span>
-        <span class="strip-label">Selected Work</span>
-        <span class="strip-line" aria-hidden="true"></span>
-      </div>
-
-      <div class="proj-header reveal">
-        <h2 id="projects-heading" class="sec-h2">
-          Projects That<br><em class="h2-accent">Hit Different</em>
-        </h2>
-      </div>
-
-      <div class="proj-grid">
-
-        <!-- Featured -->
-        <article class="proj-card proj-featured reveal" aria-labelledby="proj1-title">
-          <div class="proj-meta">
-            <span class="proj-num" aria-hidden="true">01</span>
-            <ul class="proj-tags" aria-label="Technologies used">
-              <li class="pt">HTML5</li><li class="pt">CSS3</li><li class="pt">JavaScript</li>
-            </ul>
-            <h3 class="proj-name" id="proj1-title">Spark Motor — Automotive Showcase</h3>
-            <a href="https://mhyaldynbdalrhmn1-cloud.github.io/STARK-MOTOR/#home" class="proj-link" aria-label="View Spark Motor project">
-              View Project <span aria-hidden="true">→</span>
-            </a>
-          </div>
-          <p class="proj-desc">
-            Developed a premium, responsive web platform for a car showroom — dynamic vehicle catalogs,
-            filtered spec views, and an immersive UI/UX that matches luxury automotive brand standards.
-            Every interaction engineered to feel as powerful as the vehicles themselves.
-          </p>
-        </article>
-
-        <article class="proj-card reveal" style="--d:.05s" aria-labelledby="proj2-title">
-          <span class="proj-num" aria-hidden="true">02</span>
-          <ul class="proj-tags" aria-label="Technologies used"><li class="pt">Frontend</li><li class="pt">Responsive</li></ul>
-          <h3 class="proj-name" id="proj2-title">Stark E-Commerce Platform</h3>
-          <p class="proj-desc">Multi-page consumer electronics platform — intuitive catalog UX, responsive layout performance, cohesive modern design system.</p>
-          <a href="https://mhyaldynbdalrhmn1-cloud.github.io/Stark/" class="proj-link" aria-label="View Stark E-Commerce project">View Project <span aria-hidden="true">→</span></a>
-        </article>
-
-        <article class="proj-card reveal" style="--d:.1s" aria-labelledby="proj3-title">
-          <span class="proj-num" aria-hidden="true">03</span>
-          <ul class="proj-tags" aria-label="Technologies used"><li class="pt">Frontend</li><li class="pt">Brand Design</li></ul>
-          <h3 class="proj-name" id="proj3-title">Spanish Cafe Landing Page</h3>
-          <p class="proj-desc">Premium, fully responsive landing page for an elite coffee shop — cohesive brand identity, detailed menu architecture, fluid animations.</p>
-          <a href="https://mhyaldynbdalrhmn1-cloud.github.io/spanish-cafe/" class="proj-link" aria-label="View Spanish Cafe project">View Project <span aria-hidden="true">→</span></a>
-        </article>
-
-        <article class="proj-card reveal" style="--d:.05s" aria-labelledby="proj4-title">
-          <span class="proj-num" aria-hidden="true">04</span>
-          <ul class="proj-tags" aria-label="Technologies used"><li class="pt">Java</li><li class="pt">Desktop</li><li class="pt">Automata</li></ul>
-          <h3 class="proj-name" id="proj4-title">Automata Theory Tool — NFA→DFA</h3>
-          <p class="proj-desc">Robust desktop application converting NFA to DFA — file I/O streams, structured state-machine data processing, algorithmic precision.</p>
-     
-        </article>
-
-        <article class="proj-card reveal" style="--d:.1s" aria-labelledby="proj5-title">
-          <span class="proj-num" aria-hidden="true">05</span>
-          <ul class="proj-tags" aria-label="Technologies used"><li class="pt">Figma</li><li class="pt">UI/UX</li><li class="pt">Frontend</li></ul>
-          <h3 class="proj-name" id="proj5-title">Capsulty — Medical Reminder Platform</h3>
-          <p class="proj-desc">High-fidelity Figma mobile prototype with responsive web landing — bridging design systems and frontend implementation for healthcare.</p>
-          <a href="https://www.figma.com/design/ZTczmDpkXEgryiwIsN3yG7/Untitled?node-id=0-1&t=7DgttU6DpZZ16R4I-1" class="proj-link" aria-label="View Capsulty project">View Project <span aria-hidden="true">→</span></a>
-        </article>
-
-        <article class="proj-card reveal" style="--d:.05s" aria-labelledby="proj6-title">
-          <span class="proj-num" aria-hidden="true">06</span>
-          <ul class="proj-tags" aria-label="Technologies used"><li class="pt">Java</li><li class="pt">JavaFX</li><li class="pt">Oracle DB</li><li class="pt">JDBC</li></ul>
-          <h3 class="proj-name" id="proj6-title">Hotel &amp; Guest Management System</h3>
-          <p class="proj-desc">Full desktop app integrated with Oracle Database via JDBC — robust persistence for hotel operations and guest management.</p>
-        </article>
-
-        <article class="proj-card reveal" style="--d:.1s" aria-labelledby="proj7-title">
-          <span class="proj-num" aria-hidden="true">07</span>
-          <ul class="proj-tags" aria-label="Technologies used"><li class="pt">Java</li><li class="pt">Algorithms</li><li class="pt">Data Structures</li></ul>
-          <h3 class="proj-name" id="proj7-title">Expression Evaluator — Infix→Postfix</h3>
-          <p class="proj-desc">Converts mathematical expressions and renders hierarchical Parse Trees — algorithmic elegance, clean implementation, optimal runtime.</p>
-        </article>
-
-        <!-- Hardware callout -->
-        <div class="hw-strip reveal" role="complementary" aria-label="Hardware project">
-          <div class="hw-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
-          <div>
-            <p class="hw-title">Hardware: Traffic Light Control Circuit</p>
-            <p class="hw-desc">Designed using IC 4017 &amp; IC 4026 chips — signal timing simulation and physical hardware integration.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ░░░░░ CONTACT ░░░░░ -->
-  <section id="contact" aria-labelledby="contact-heading">
-    <div class="container">
-
-      <div class="sec-strip reveal-x">
-        <span class="strip-num">04</span>
-        <span class="strip-label">Get In Touch</span>
-        <span class="strip-line" aria-hidden="true"></span>
-      </div>
-
-      <div class="contact-grid">
-
-        <!-- Info -->
-        <div class="contact-info reveal">
-          <h2 id="contact-heading" class="sec-h2">
-            Let's Build<br><em class="h2-accent">Something Great</em>
-          </h2>
-          <p class="contact-sub">
-            Open for freelance, collaborations, and full-time roles.
-            If you have a project or just want to connect — I'm ready.
-          </p>
-
-          <dl class="ci-list">
-            <div class="ci-item">
-              <dt class="ci-label">Email</dt>
-              <dd><a href="mailto:mhyaldynbdalrhmn1@gmail.com" class="ci-value">mhyaldynbdalrhmn1@gmail.com</a></dd>
-            </div>
-            <div class="ci-item">
-              <dt class="ci-label">Phone</dt>
-              <dd><a href="tel:+201092967490" class="ci-value">+20 1092967490</a></dd>
-            </div>
-            <div class="ci-item">
-              <dt class="ci-label">GitHub</dt>
-              <dd><a href="https://github.com/mhyaldynbdalrhmn1-cloud" target="_blank" rel="noopener noreferrer" class="ci-value">github.com/mhyaldynbdalrhmn1-cloud</a></dd>
-            </div>
-             <div class="ci-item">
-              <dt class="ci-label">LinkedIn</dt>
-              <dd><a href="https://www.linkedin.com/in/abdelrahman-mohy-eldin-066929328?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="ci-value">Click here</a></dd>
-            </div>
-            <div class="ci-item">
-              <dt class="ci-label">Location</dt>
-              <dd><span class="ci-value">Alexandria, Egypt</span></dd>
-            </div>
-          </dl>
-        </div>
-
-        <!-- Form -->
-        <div class="contact-form-wrap reveal" style="--d:.15s">
-          <form id="contact-form" class="cform" novalidate aria-label="Contact form">
-            <div class="fg">
-              <label for="cf-name" class="fl">Full Name</label>
-              <input class="fi" id="cf-name" name="from_name" type="text" placeholder="Your name" required autocomplete="name" />
-              <span class="fi-border" aria-hidden="true"></span>
-            </div>
-            <div class="fg">
-              <label for="cf-email" class="fl">Email Address</label>
-              <input class="fi" id="cf-email" name="from_email" type="email" placeholder="your@email.com" required autocomplete="email" />
-              <span class="fi-border" aria-hidden="true"></span>
-            </div>
-            <div class="fg">
-              <label for="cf-subject" class="fl">Subject</label>
-              <input class="fi" id="cf-subject" name="subject" type="text" placeholder="What's this about?" required />
-              <span class="fi-border" aria-hidden="true"></span>
-            </div>
-            <div class="fg">
-              <label for="cf-message" class="fl">Message</label>
-              <textarea class="fi ft" id="cf-message" name="message" placeholder="Tell me about your project..." required></textarea>
-              <span class="fi-border" aria-hidden="true"></span>
-            </div>
-
-            <button type="submit" class="btn-glow form-submit" id="form-btn" aria-live="polite">
-              <span class="btn-inner" id="form-btn-label">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                Send Message
-              </span>
-            </button>
-
-            <!-- Status messages -->
-            <p class="form-success" id="form-success" role="alert" aria-live="polite" hidden>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              Message sent — I'll be in touch soon!
-            </p>
-            <p class="form-error" id="form-error" role="alert" aria-live="polite" hidden>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-              Something went wrong. Please email me directly.
-            </p>
-          </form>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ░░░░░ FOOTER ░░░░░ -->
-  <footer id="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-inner">
-
-        <a href="#hero" class="footer-logo" aria-label="Back to top">
-          <span class="nl-bracket">[</span>AM<span class="nl-bracket">]</span>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">
+          <span class="btn-icon">▶</span>
+          <span data-en="View My Work" data-ar="شوف أعمالي">View My Work</span>
         </a>
+        <a href="#contact" class="btn-secondary">
+          <span data-en="Let's Talk" data-ar="تكلم معايا">Let's Talk</span>
+        </a>
+      </div>
 
-        <p class="footer-copy">
-          &copy; 2025 Abdelrahman Mohy Eldin &mdash; Crafted with precision.
+      <!-- Stats row -->
+      <div class="hero-stats">
+        <div class="hstat">
+          <span class="hstat-n">7+</span>
+          <span class="hstat-l" data-en="Projects" data-ar="مشروع">Projects</span>
+        </div>
+        <div class="hstat-sep"></div>
+        <div class="hstat">
+          <span class="hstat-n">6</span>
+          <span class="hstat-l" data-en="Languages" data-ar="لغة برمجة">Languages</span>
+        </div>
+        <div class="hstat-sep"></div>
+        <div class="hstat">
+          <span class="hstat-n">4+</span>
+          <span class="hstat-l" data-en="Tech Stacks" data-ar="تكنولوجيا">Tech Stacks</span>
+        </div>
+        <div class="hstat-sep"></div>
+        <div class="hstat">
+          <span class="hstat-n">2025</span>
+          <span class="hstat-l" data-en="Cohort" data-ar="دفعة">Cohort</span>
+        </div>
+      </div>
+
+    </div><!-- /hero-copy -->
+
+    <!-- Right: photo -->
+    <div class="hero-photo">
+      <div class="photo-frame" id="photo-frame">
+        <img src="wow.jpeg" alt="Abdelrahman Mohy Eldin" id="hero-img"
+             onerror="this.style.display='none';document.getElementById('photo-fallback').style.display='flex'"/>
+        <div id="photo-fallback" class="photo-fallback">
+          <svg viewBox="0 0 80 80"><circle cx="40" cy="28" r="16" stroke="#2563eb" stroke-width="1.5" fill="none"/><path d="M8 72c0-18 14-30 32-30s32 12 32 30" stroke="#2563eb" stroke-width="1.5" fill="none"/></svg>
+          <span>wow.jpeg</span>
+        </div>
+        <div class="photo-overlay"></div>
+        <div class="photo-scanlines"></div>
+      </div>
+      <!-- Decorative corners -->
+      <i class="corner c-tl"></i><i class="corner c-tr"></i>
+      <i class="corner c-bl"></i><i class="corner c-br"></i>
+      <!-- Floating tag -->
+      <div class="photo-tag">
+        <span class="ptag-pulse"></span>
+        <span data-en="Available for hire" data-ar="متاح للتوظيف">Available for hire</span>
+      </div>
+      <span class="photo-side-text">Portfolio · 2025</span>
+    </div>
+
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="scroll-cue" aria-hidden="true">
+    <span class="sc-line"></span>
+    <span class="sc-word" data-en="SCROLL" data-ar="اسكرول">SCROLL</span>
+  </div>
+</section>
+
+<!-- ███ ABOUT ███ -->
+<section id="about">
+  <div class="container">
+
+    <div class="sec-head reveal-up">
+      <span class="sec-num">01</span>
+      <span class="sec-label" data-en="About Me" data-ar="عن نفسي">About Me</span>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-copy reveal-left">
+        <h2 class="sec-title">
+          <span data-en="Built to" data-ar="صُنع">Built to</span><br>
+          <em data-en="Perform" data-ar="ليُتفوّق">Perform</em>
+        </h2>
+        <p data-en="I'm <strong>Abdelrahman Mohy Eldin</strong> — a CS & Statistics student obsessed with building things that are fast, elegant, and precise."
+           data-ar="أنا <strong>عبد الرحمن محي الدين</strong> — طالب علم حاسب وإحصاء مهووس ببناء أشياء سريعة وأنيقة ودقيقة.">
+          I'm <strong>Abdelrahman Mohy Eldin</strong> — a CS & Statistics student obsessed with building things that are fast, elegant, and precise.
         </p>
+        <p data-en="My work lives at the intersection of <strong>systems thinking and design intuition</strong> — from Oracle-backed desktop apps to pixel-perfect UI prototypes."
+           data-ar="أعمالي تجمع بين <strong>تفكير الأنظمة وحدس التصميم</strong> — من تطبيقات سطح المكتب المتصلة بقواعد بيانات Oracle إلى النماذج الأولية المثالية.">
+          My work lives at the intersection of <strong>systems thinking and design intuition</strong> — from Oracle-backed desktop apps to pixel-perfect UI prototypes.
+        </p>
+        <div class="lang-chips">
+          <span class="chip" data-en="🇪🇬 Arabic — Native" data-ar="🇪🇬 العربية — اللغة الأم">🇪🇬 Arabic — Native</span>
+          <span class="chip" data-en="🇬🇧 English — Very Good" data-ar="🇬🇧 الإنجليزية — جيد جداً">🇬🇧 English — Very Good</span>
+        </div>
+      </div>
 
-        <nav class="footer-socials" aria-label="Social links">
-          <a href="mailto:mhyaldynbdalrhmn1@gmail.com" class="soc-link">Email</a>
-          <a href="https://github.com/mhyaldynbdalrhmn1-cloud" target="_blank" rel="noopener noreferrer" class="soc-link">GitHub</a>
-          <a href="tel:+201092967490" class="soc-link">Phone</a>
-        </nav>
-
+      <div class="about-edu reveal-right">
+        <div class="sec-head sec-head--sm">
+          <span class="sec-num">EDU</span>
+          <span class="sec-label" data-en="Education" data-ar="التعليم">Education</span>
+        </div>
+        <ol class="timeline">
+          <li class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-body">
+              <time class="tl-date" data-en="2025 — 2029 Expected" data-ar="2025 — 2029 متوقع">2025 — 2029 Expected</time>
+              <p class="tl-degree" data-en="B.Sc. Computer Science & Statistics" data-ar="بكالوريوس علم الحاسب والإحصاء">B.Sc. Computer Science &amp; Statistics</p>
+              <p class="tl-school" data-en="Alexandria University — Faculty of Science" data-ar="جامعة الإسكندرية — كلية العلوم">Alexandria University — Faculty of Science</p>
+              <span class="tl-badge" data-en="Undergraduate" data-ar="طالب جامعي">Undergraduate</span>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-body">
+              <time class="tl-date" data-en="Ongoing" data-ar="مستمر">Ongoing</time>
+              <p class="tl-degree" data-en="Self-Directed Engineering" data-ar="تعلم ذاتي في الهندسة البرمجية">Self-Directed Engineering</p>
+              <p class="tl-school" data-en="Software Architecture · UI/UX · Databases" data-ar="هندسة البرمجيات · تجربة المستخدم · قواعد البيانات">Software Architecture · UI/UX · Databases</p>
+              <span class="tl-badge" data-en="In Progress" data-ar="جارٍ">In Progress</span>
+            </div>
+          </li>
+        </ol>
       </div>
     </div>
 
-    <!-- Back to top -->
-    <button class="back-top" id="back-top" aria-label="Scroll back to top" hidden>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
-    </button>
-  </footer>
+  </div>
+</section>
 
-  <!-- Main script -->
-  <script src="main.js"></script>
-  
+<!-- ███ SKILLS ███ -->
+<section id="skills" class="sec-dark">
+  <div class="container">
+
+    <div class="sec-head reveal-up">
+      <span class="sec-num">02</span>
+      <span class="sec-label" data-en="Technical Arsenal" data-ar="الترسانة التقنية">Technical Arsenal</span>
+    </div>
+    <h2 class="sec-title tc reveal-up" style="--d:.1s">
+      <span data-en="Tools of" data-ar="أدوات">Tools of</span>
+      <em data-en="the Trade" data-ar="المحترف">the Trade</em>
+    </h2>
+
+    <div class="skills-grid">
+
+      <div class="sk-card reveal-up" data-tilt style="--d:.0s">
+        <div class="sk-head">
+          <div class="sk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <h3 class="sk-name" data-en="Languages" data-ar="لغات البرمجة">Languages</h3>
+        </div>
+        <ul class="sk-tags">
+          <li>Java — OOP</li><li>PHP</li><li>SQL</li>
+          <li>HTML5</li><li>CSS3</li><li>JavaScript</li>
+        </ul>
+      </div>
+
+      <div class="sk-card reveal-up" data-tilt style="--d:.1s">
+        <div class="sk-head">
+          <div class="sk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <h3 class="sk-name" data-en="Frameworks & Tools" data-ar="الأطر والأدوات">Frameworks &amp; Tools</h3>
+        </div>
+        <ul class="sk-tags">
+          <li>JavaFX</li><li>JDBC</li><li>Figma</li>
+          <li>Git</li><li>Tailwind CSS</li>
+        </ul>
+      </div>
+
+      <div class="sk-card reveal-up" data-tilt style="--d:.2s">
+        <div class="sk-head">
+          <div class="sk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+          <h3 class="sk-name" data-en="Databases" data-ar="قواعد البيانات">Databases</h3>
+        </div>
+        <ul class="sk-tags">
+          <li>Oracle DB</li><li>SQL Server</li><li>MySQL / XAMPP</li>
+        </ul>
+      </div>
+
+      <div class="sk-card reveal-up" data-tilt style="--d:.3s">
+        <div class="sk-head">
+          <div class="sk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-5 0v-15A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 8A2.5 2.5 0 0 1 17 10.5v9a2.5 2.5 0 0 1-5 0v-9A2.5 2.5 0 0 1 14.5 8Z"/></svg></div>
+          <h3 class="sk-name" data-en="Core Concepts" data-ar="المفاهيم الأساسية">Core Concepts</h3>
+        </div>
+        <ul class="sk-tags">
+          <li>Data Structures</li><li>Algorithms</li>
+          <li>Automata / NFA-DFA</li><li>Logic Circuits</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ███ PROJECTS ███ -->
+<section id="projects">
+  <div class="container">
+
+    <div class="sec-head reveal-up">
+      <span class="sec-num">03</span>
+      <span class="sec-label" data-en="Selected Work" data-ar="أعمال مختارة">Selected Work</span>
+    </div>
+    <h2 class="sec-title reveal-up" style="--d:.1s">
+      <span data-en="Projects That" data-ar="مشاريع">Projects That</span>
+      <em data-en="Hit Different" data-ar="تفرق">Hit Different</em>
+    </h2>
+
+    <div class="proj-grid">
+
+      <!-- Featured -->
+      <article class="proj-card proj-featured reveal-up" style="--d:.0s">
+        <div class="pf-left">
+          <div class="proj-num">01</div>
+          <ul class="proj-tags"><li>HTML5</li><li>CSS3</li><li>JavaScript</li></ul>
+          <h3 class="proj-name" data-en="Spark Motor — Automotive Showcase" data-ar="سبارك موتور — منصة عرض سيارات">Spark Motor — Automotive Showcase</h3>
+          <a href="https://mhyaldynbdalrhmn1-cloud.github.io/STARK-MOTOR/#home" target="_blank" rel="noopener noreferrer" class="proj-link"><span data-en="View Project" data-ar="شوف المشروع">View Project</span> <span class="arrow">→</span></a>
+        </div>
+        <p class="proj-desc"
+           data-en="Premium responsive web platform for a car showroom — dynamic vehicle catalogs, filtered specs, and immersive UI/UX matching luxury automotive brand standards."
+           data-ar="منصة ويب متجاوبة وفاخرة لصالة عرض سيارات — كتالوجات مركبات ديناميكية وواجهة مستخدم غامرة تضاهي معايير العلامات التجارية الفاخرة.">
+          Premium responsive web platform for a car showroom — dynamic vehicle catalogs, filtered specs, and immersive UI/UX matching luxury automotive brand standards.
+        </p>
+      </article>
+
+      <article class="proj-card reveal-up" style="--d:.1s">
+        <div class="proj-num">02</div>
+        <ul class="proj-tags"><li>Frontend</li><li>Responsive</li></ul>
+        <h3 class="proj-name" data-en="Stark E-Commerce Platform" data-ar="منصة ستارك للتجارة الإلكترونية">Stark E-Commerce Platform</h3>
+        <p class="proj-desc" data-en="Multi-page consumer electronics platform with intuitive catalog UX and responsive design system." data-ar="منصة إلكترونيات متعددة الصفحات بتجربة مستخدم سلسة وتصميم متجاوب.">Multi-page consumer electronics platform with intuitive catalog UX and responsive design system.</p>
+        <a href="https://mhyaldynbdalrhmn1-cloud.github.io/Stark/" target="_blank" rel="noopener noreferrer" class="proj-link"><span data-en="View Project" data-ar="شوف المشروع">View Project</span> <span class="arrow">→</span></a>
+      </article>
+
+      <article class="proj-card reveal-up" style="--d:.2s">
+        <div class="proj-num">03</div>
+        <ul class="proj-tags"><li>Frontend</li><li>Brand</li></ul>
+        <h3 class="proj-name" data-en="Spanish Cafe Landing Page" data-ar="صفحة هبوط المقهى الإسباني">Spanish Cafe Landing Page</h3>
+        <p class="proj-desc" data-en="Premium responsive landing page for a coffee shop — cohesive brand identity and fluid animations." data-ar="صفحة هبوط متجاوبة وفاخرة لمقهى — هوية بصرية متماسكة وأنيميشن سلس.">Premium responsive landing page for a coffee shop — cohesive brand identity and fluid animations.</p>
+        <a href="https://mhyaldynbdalrhmn1-cloud.github.io/spanish-cafe/" target="_blank" rel="noopener noreferrer" class="proj-link"><span data-en="View Project" data-ar="شوف المشروع">View Project</span> <span class="arrow">→</span></a>
+      </article>
+
+      <article class="proj-card reveal-up" style="--d:.1s">
+        <div class="proj-num">04</div>
+        <ul class="proj-tags"><li>Java</li><li>Desktop</li><li>Automata</li></ul>
+        <h3 class="proj-name" data-en="Automata Tool — NFA→DFA" data-ar="أداة الأوتوماتا — NFA إلى DFA">Automata Tool — NFA→DFA</h3>
+        <p class="proj-desc" data-en="Desktop app converting NFA to DFA — file I/O, structured state-machine processing, algorithmic precision." data-ar="تطبيق سطح مكتب لتحويل NFA إلى DFA بمعالجة ملفات دقيقة وخوارزميات محكمة.">Desktop app converting NFA to DFA — file I/O, structured state-machine processing, algorithmic precision.</p>
+      </article>
+
+      <article class="proj-card reveal-up" style="--d:.2s">
+        <div class="proj-num">05</div>
+        <ul class="proj-tags"><li>Figma</li><li>UI/UX</li><li>Frontend</li></ul>
+        <h3 class="proj-name" data-en="Capsulty — Medical Reminder" data-ar="كابسولتي — منصة تذكير طبي">Capsulty — Medical Reminder</h3>
+        <p class="proj-desc" data-en="High-fidelity Figma prototype + responsive web landing bridging design and frontend for healthcare." data-ar="نموذج Figma عالي الدقة وصفحة ويب متجاوبة تربط بين التصميم والتنفيذ في المجال الطبي.">High-fidelity Figma prototype + responsive web landing bridging design and frontend for healthcare.</p>
+        <a href="https://www.figma.com/design/ZTczmDpkXEgryiwIsN3yG7/Untitled?node-id=0-1&p=f" class="proj-link"><span data-en="View Project" data-ar="شوف المشروع">View Project</span> <span class="arrow">→</span></a>
+      </article>
+
+      <article class="proj-card reveal-up" style="--d:.1s">
+        <div class="proj-num">06</div>
+        <ul class="proj-tags"><li>Java</li><li>JavaFX</li><li>Oracle DB</li></ul>
+        <h3 class="proj-name" data-en="Hotel Management System" data-ar="نظام إدارة الفندق">Hotel Management System</h3>
+        <p class="proj-desc" data-en="Full desktop app integrated with Oracle DB via JDBC for hotel operations and guest management." data-ar="تطبيق سطح مكتب كامل متصل بقاعدة بيانات Oracle لإدارة عمليات الفندق والضيوف.">Full desktop app integrated with Oracle DB via JDBC for hotel operations and guest management.</p>
+              </article>
+
+      <article class="proj-card reveal-up" style="--d:.2s">
+        <div class="proj-num">07</div>
+        <ul class="proj-tags"><li>Java</li><li>Algorithms</li></ul>
+        <h3 class="proj-name" data-en="Expression Evaluator" data-ar="محلل التعبيرات الرياضية">Expression Evaluator</h3>
+        <p class="proj-desc" data-en="Infix→Postfix conversion with Parse Tree rendering — algorithmic elegance and optimal runtime." data-ar="تحويل Infix إلى Postfix مع رسم شجرة التحليل — أناقة خوارزمية وأداء مثالي.">Infix→Postfix conversion with Parse Tree rendering — algorithmic elegance and optimal runtime.</p>
+      </article>
+
+      <!-- Hardware strip -->
+      <div class="hw-strip reveal-up" style="--d:.3s">
+        <div class="hw-icon">⚡</div>
+        <div>
+          <p class="hw-title" data-en="Hardware: Traffic Light Control Circuit" data-ar="هاردوير: دائرة التحكم في إشارات المرور">Hardware: Traffic Light Control Circuit</p>
+          <p class="hw-desc" data-en="Designed with IC 4017 & IC 4026 chips — signal timing simulation and physical hardware integration." data-ar="مصممة باستخدام شرائح IC 4017 و IC 4026 — محاكاة توقيت الإشارات وتكامل الأجهزة الفعلية.">Designed with IC 4017 &amp; IC 4026 chips — signal timing simulation and physical hardware integration.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ███ CONTACT ███ -->
+<section id="contact" class="sec-dark">
+  <div class="container">
+
+    <div class="sec-head reveal-up">
+      <span class="sec-num">04</span>
+      <span class="sec-label" data-en="Get In Touch" data-ar="تواصل معي">Get In Touch</span>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- Info -->
+      <div class="contact-info reveal-left">
+        <h2 class="sec-title">
+          <span data-en="Let's Build" data-ar="نبني">Let's Build</span>
+          <em data-en="Together" data-ar="سوياً">Together</em>
+        </h2>
+        <p class="contact-sub"
+           data-en="Open for freelance, collaborations & full-time roles. Have a project or just want to say hello — I'm ready."
+           data-ar="متاح للعمل الحر والتعاون والوظائف الكاملة. لديك مشروع أو تريد فقط التحدث — أنا مستعد.">
+          Open for freelance, collaborations &amp; full-time roles. Have a project or just want to say hello — I'm ready.
+        </p>
+        <dl class="ci-list">
+          <div class="ci-row">
+            <dt class="ci-label" data-en="Email" data-ar="البريد">Email</dt>
+            <dd><a href="mailto:mhyaldynbdalrhmn1@gmail.com" class="ci-val">mhyaldynbdalrhmn1@gmail.com</a></dd>
+          </div>
+          <div class="ci-row">
+            <dt class="ci-label" data-en="Phone" data-ar="الهاتف">Phone</dt>
+            <dd><a href="tel:+201092967490" class="ci-val">+20 109 296 7490</a></dd>
+          </div>
+          <div class="ci-row">
+            <dt class="ci-label" data-en="GitHub" data-ar="جيت هاب">GitHub</dt>
+            <dd><a href="https://github.com/mhyaldynbdalrhmn1-cloud" target="_blank" rel="noopener" class="ci-val">Here</a></dd>
+          </div>
+          <div class="ci-row">
+            <dt class="ci-label" data-en="LinkedIn" data-ar="لينكد إن">LinkedIn</dt>
+            <dd>
+              <a href="https://www.linkedin.com/in/abdelrahman-mohy-eldin-066929328/" target="_blank" rel="noopener" class="ci-val linkedin-val">
+          
+                </span>
+                <span data-en="linkedin.com/in/abdelrahman-mohy-eldin" data-ar="linkedin.com/in/abdelrahman-mohy-eldin">Here</span>
+              </a>
+            </dd>
+          </div>
+          <div class="ci-row">
+            <dt class="ci-label" data-en="Location" data-ar="الموقع">Location</dt>
+            <dd><span class="ci-val" data-en="Alexandria, Egypt 🇪🇬" data-ar="الإسكندرية، مصر 🇪🇬">Alexandria, Egypt 🇪🇬</span></dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Form -->
+      <form id="contact-form" class="cform reveal-right" novalidate>
+
+        <div class="fg">
+          <label class="fl" for="cf-name" data-en="Full Name" data-ar="الاسم الكامل">Full Name</label>
+          <input class="fi" id="cf-name" name="from_name" type="text" placeholder="Your name" required autocomplete="name"/>
+        </div>
+        <div class="fg">
+          <label class="fl" for="cf-email" data-en="Email Address" data-ar="البريد الإلكتروني">Email Address</label>
+          <input class="fi" id="cf-email" name="from_email" type="email" placeholder="your@email.com" required autocomplete="email"/>
+        </div>
+        <div class="fg">
+          <label class="fl" for="cf-subj" data-en="Subject" data-ar="الموضوع">Subject</label>
+          <input class="fi" id="cf-subj" name="subject" type="text" placeholder="What's this about?" required/>
+        </div>
+        <div class="fg">
+          <label class="fl" for="cf-msg" data-en="Message" data-ar="الرسالة">Message</label>
+          <textarea class="fi ft" id="cf-msg" name="message" placeholder="Tell me about your project..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary form-submit" id="form-btn">
+          <span class="btn-icon">✉</span>
+          <span id="form-lbl" data-en="Send Message" data-ar="إرسال الرسالة">Send Message</span>
+        </button>
+
+        <p id="form-ok"  class="form-ok"  hidden>✓ <span data-en="Message sent! I'll reply soon." data-ar="تم الإرسال! سأرد قريباً.">Message sent! I'll reply soon.</span></p>
+        <p id="form-err" class="form-err" hidden>✗ <span data-en="Something went wrong. Email me directly." data-ar="حدث خطأ. راسلني مباشرة.">Something went wrong. Email me directly.</span></p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- ███ FOOTER ███ -->
+<footer id="footer">
+  <div class="container footer-inner">
+    <a href="#hero" class="nav-logo"><span class="logo-bracket">&lt;</span>AM<span class="logo-bracket">/&gt;</span></a>
+    <p class="footer-copy" data-en="© 2025 Abdelrahman Mohy Eldin — Built with precision." data-ar="© 2025 عبد الرحمن محي الدين — مبني بدقة.">© 2025 Abdelrahman Mohy Eldin — Built with precision.</p>
+    <nav class="footer-socials">
+      <a href="mailto:mhyaldynbdalrhmn1@gmail.com" class="soc">Email</a>
+      <a href="https://github.com/mhyaldynbdalrhmn1-cloud" target="_blank" rel="noopener" class="soc">GitHub</a>
+      <a href="https://www.linkedin.com/in/abdelrahman-mohy-eldin-066929328/" target="_blank" rel="noopener" class="soc soc-linkedin">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13" style="display:inline;vertical-align:middle;margin-right:4px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn
+      </a>
+      <a href="tel:+201092967490" class="soc">Phone</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="btt" class="btt" aria-label="Back to top">↑</button>
+
+<script src="main.js"></script>
 </body>
 </html>
