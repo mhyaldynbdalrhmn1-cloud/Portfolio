@@ -28,9 +28,9 @@
 "use strict";
 
 /* ── 1. EMAILJS ─────────────────────────────────── */
-const EJ_KEY      = "TDEv_aebZc2gHLgB4";
-const EJ_SERVICE  = "service_h4c92rg";
-const EJ_TEMPLATE = "template_vunwgrd";
+const EJ_KEY      = "YOUR_PUBLIC_KEY";
+const EJ_SERVICE  = "YOUR_SERVICE_ID";
+const EJ_TEMPLATE = "YOUR_TEMPLATE_ID";
 
 if (typeof emailjs !== "undefined") {
   emailjs.init({ publicKey: EJ_KEY });
