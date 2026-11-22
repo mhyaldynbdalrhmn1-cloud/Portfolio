@@ -1142,3 +1142,36 @@ footer { padding: 44px 0; border-top: 1px solid var(--border2); }
 
 /* ── FOCUS ────────────────────────────────────────── */
 :focus-visible { outline:2px solid var(--blue3);outline-offset:3px; }
+
+/* ── NAV CV BUTTON ── */
+.nav-cv {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  clip-path: var(--clip-sm);
+  padding: 8px 16px;
+  transition: background .25s, border-color .25s, color .25s, transform .3s var(--spring);
+}
+.nav-cv svg { transition: transform .3s var(--spring); }
+.nav-cv:hover {
+  background: var(--cyan);
+  border-color: var(--cyan);
+  color: var(--bg);
+  transform: translateY(-2px);
+}
+.nav-cv:hover svg { transform: translateY(2px); }
+[data-lang="ar"] .nav-cv { font-family: var(--f-ar); font-size: 13px; letter-spacing: 0; }
+
+/* على الموبايل: أيقونة بس */
+@media (max-width: 900px) {
+  .nav-cv span { display: none; }
+  .nav-cv { padding: 8px 11px; }
+}
